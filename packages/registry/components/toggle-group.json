@@ -1,0 +1,13 @@
+{
+  "name": "toggle-group",
+  "description": "Kumpulan tombol toggle untuk seleksi tunggal atau banyak",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["toggle-group.tsx"] },
+  "dependencies": [],
+  "registryDependencies": ["toggle"],
+  "tailwind": { "cssVars": [] },
+  "docs": "docs/03-components/toggle-group",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

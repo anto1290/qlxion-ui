@@ -1,0 +1,13 @@
+{
+  "name": "sidebar",
+  "description": "Panel navigasi samping yang dapat diciutkan (collapsible sidebar)",
+  "category": "layout",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["sidebar.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-border", "--qlx-color-background"] },
+  "docs": "docs/03-components/sidebar",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

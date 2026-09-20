@@ -1,0 +1,13 @@
+{
+  "name": "empty",
+  "description": "Komponen state kosong dengan ikon, judul, deskripsi, dan aksi opsional",
+  "category": "feedback",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["empty.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-muted", "--qlx-color-border"] },
+  "docs": "docs/03-components/empty",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

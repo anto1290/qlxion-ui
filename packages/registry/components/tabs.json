@@ -1,0 +1,13 @@
+{
+  "name": "tabs",
+  "description": "Komponen tab panel navigasi untuk beralih antar tampilan konten",
+  "category": "navigation",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["tabs.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-muted", "--qlx-color-background"] },
+  "docs": "docs/03-components/tabs",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

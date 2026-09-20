@@ -1,0 +1,13 @@
+{
+  "name": "toggle",
+  "description": "Tombol dua kondisi yang dapat ditekan (pressed / unpressed)",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["toggle.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-accent"] },
+  "docs": "docs/03-components/toggle",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

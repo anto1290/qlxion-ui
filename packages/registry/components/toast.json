@@ -1,0 +1,13 @@
+{
+  "name": "toast",
+  "description": "Notifikasi pop-up non-blocking sementara (toast alert)",
+  "category": "feedback",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["toast.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-border", "--qlx-color-destructive"] },
+  "docs": "docs/03-components/toast",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

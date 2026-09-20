@@ -1,0 +1,13 @@
+{
+  "name": "alert-dialog",
+  "description": "Modal dialog khusus untuk tindakan konfirmasi krusial/destruktif",
+  "category": "overlay",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["alert-dialog.tsx"] },
+  "dependencies": [],
+  "registryDependencies": ["dialog"],
+  "tailwind": { "cssVars": ["--qlx-color-destructive"] },
+  "docs": "docs/03-components/alert-dialog",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

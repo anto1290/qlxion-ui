@@ -1,0 +1,13 @@
+{
+  "name": "data-table",
+  "description": "Komponen tabel data dinamis dengan konfigurasi kolom dan state",
+  "category": "data-display",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["data-table.tsx"] },
+  "dependencies": [],
+  "registryDependencies": ["table"],
+  "tailwind": { "cssVars": ["--qlx-color-border"] },
+  "docs": "docs/03-components/data-table",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

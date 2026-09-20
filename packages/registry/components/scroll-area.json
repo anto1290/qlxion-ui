@@ -1,0 +1,13 @@
+{
+  "name": "scroll-area",
+  "description": "Area gulir kustom dengan styling scrollbar yang konsisten",
+  "category": "layout",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["scroll-area.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-muted-foreground"] },
+  "docs": "docs/03-components/scroll-area",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

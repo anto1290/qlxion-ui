@@ -1,0 +1,13 @@
+{
+  "name": "dialog",
+  "description": "Modal overlay dialog terakses untuk konfirmasi dan form",
+  "category": "overlay",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["dialog.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-background", "--qlx-color-foreground", "--qlx-color-border"] },
+  "docs": "docs/03-components/dialog",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

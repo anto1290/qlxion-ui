@@ -1,0 +1,13 @@
+{
+  "name": "dropdown",
+  "description": "Menu opsi melayang untuk aksi, filter, single dan multi-select",
+  "category": "navigation",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["dropdown.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-popover", "--qlx-color-accent"] },
+  "docs": "docs/03-components/dropdown",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

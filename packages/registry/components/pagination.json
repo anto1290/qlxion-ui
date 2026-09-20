@@ -1,0 +1,13 @@
+{
+  "name": "pagination",
+  "description": "Navigasi pagination terstruktur untuk pembagian halaman konten",
+  "category": "navigation",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["pagination.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-accent"] },
+  "docs": "docs/03-components/pagination",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

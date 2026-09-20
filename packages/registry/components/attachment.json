@@ -1,0 +1,13 @@
+{
+  "name": "attachment",
+  "description": "Kartu preview dan hapus lampiran berkas/file upload",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["attachment.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-card", "--qlx-color-muted"] },
+  "docs": "docs/03-components/attachment",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

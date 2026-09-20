@@ -1,0 +1,13 @@
+{
+  "name": "textarea",
+  "description": "Area input teks multibaris dengan fokus dan ring styling",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["textarea.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-input"] },
+  "docs": "docs/03-components/textarea",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

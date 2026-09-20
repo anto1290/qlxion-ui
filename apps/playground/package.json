@@ -1,0 +1,21 @@
+{
+  "name": "playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"playground dev\" && exit 0",
+    "build": "echo \"playground build\" && exit 0",
+    "lint": "eslint src",
+    "test": "echo \"no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@qlxion-ui/tokens": "workspace:*",
+    "@qlxion-ui/core-react": "workspace:*",
+    "@qlxion-ui/core-vue": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "typescript": "^5.0.0"
+  }
+}

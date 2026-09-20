@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/commands/add.ts","./src/commands/init.ts","./src/types/index.ts","./src/utils/config.ts","./src/utils/dependencies.ts","./src/utils/files.ts","./src/utils/framework-detection.ts","./src/utils/index.ts","./src/utils/npm.ts","./src/utils/prompts.ts","./src/utils/registry.ts"],"version":"5.9.3"}

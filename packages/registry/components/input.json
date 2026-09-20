@@ -1,0 +1,28 @@
+{
+  "name": "input",
+  "description": "Elemen input teks standar dengan dukungan label, error, prefix, suffix, dan icon",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": {
+    "react": ["input.tsx"]
+  },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": {
+    "cssVars": [
+      "--qlx-color-primary",
+      "--qlx-color-destructive",
+      "--qlx-color-muted",
+      "--qlx-color-background",
+      "--qlx-color-foreground",
+      "--qlx-color-ring",
+      "--qlx-radius-md"
+    ]
+  },
+  "docs": "docs/03-components/input",
+  "compatibility": {
+    "tailwind": ">=3.0.0",
+    "react": ">=18.0.0"
+  }
+}

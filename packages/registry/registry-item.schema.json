@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Registry Item Schema",
+  "required": ["name", "category", "frameworks", "version", "files", "docs"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "minLength": 1,
+      "description": "Nama komponen (kebab-case, lowercase)"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Deskripsi singkat komponen"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "actions",
+        "data-display",
+        "data-entry",
+        "feedback",
+        "layout",
+        "navigation",
+        "overlay",
+        "forms",
+        "typography"
+      ],
+      "description": "Kategori komponen"
+    },
+    "frameworks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["react", "vue", "react-next", "vue-nuxt"]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Framework yang didukung"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9.-]+)?$",
+      "description": "Versi semver"
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "minItems": 1
+      },
+      "minProperties": 1,
+      "description": "File sumber per framework"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "default": [],
+      "description": "Dependencies NPM eksternal"
+    },
+    "registryDependencies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$"
+      },
+      "uniqueItems": true,
+      "default": [],
+      "description": "Komponen registry lain yang dibutuhkan"
+    },
+    "tailwind": {
+      "type": "object",
+      "properties": {
+        "cssVars": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^--qlx-" },
+          "uniqueItems": true,
+          "default": [],
+          "description": "CSS custom properties yang digunakan"
+        }
+      },
+      "additionalProperties": false,
+      "default": {}
+    },
+    "docs": {
+      "type": "string",
+      "pattern": "^docs/03-components/[a-z][a-z0-9-]*$",
+      "description": "Path dokumentasi komponen"
+    },
+    "compatibility": {
+      "type": "object",
+      "properties": {
+        "tailwind": { "type": "string", "pattern": "^>=?\\d+\\.\\d+\\.\\d+" },
+        "react": { "type": "string", "pattern": "^>=?\\d+\\.\\d+\\.\\d+" },
+        "vue": { "type": "string", "pattern": "^>=?\\d+\\.\\d+\\.\\d+" }
+      },
+      "additionalProperties": false,
+      "required": ["tailwind"],
+      "description": "Kompatibilitas versi"
+    }
+  },
+  "additionalProperties": false
+}

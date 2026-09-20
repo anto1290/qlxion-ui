@@ -1,0 +1,13 @@
+{
+  "name": "bubble",
+  "description": "Gelembung pesan percakapan untuk antarmuka obrolan (chat)",
+  "category": "data-display",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["bubble.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-primary", "--qlx-color-muted"] },
+  "docs": "docs/03-components/bubble",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

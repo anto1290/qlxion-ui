@@ -1,0 +1,13 @@
+{
+  "name": "field",
+  "description": "Wrapper form field dengan label, deskripsi, error message, dan indikator required",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["field.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-destructive"] },
+  "docs": "docs/03-components/field",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

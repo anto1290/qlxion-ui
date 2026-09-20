@@ -1,0 +1,13 @@
+{
+  "name": "aspect-ratio",
+  "description": "Container untuk mempertahankan rasio aspek gambar atau media",
+  "category": "layout",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["aspect-ratio.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": [] },
+  "docs": "docs/03-components/aspect-ratio",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

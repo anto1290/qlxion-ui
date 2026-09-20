@@ -1,0 +1,13 @@
+{
+  "name": "message",
+  "description": "Komponen pesan percakapan terstruktur dengan pengirim, bubble, status, dan timestamp",
+  "category": "data-display",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["message.tsx"] },
+  "dependencies": [],
+  "registryDependencies": ["bubble"],
+  "tailwind": { "cssVars": ["--qlx-color-muted-foreground"] },
+  "docs": "docs/03-components/message",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

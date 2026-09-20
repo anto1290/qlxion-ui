@@ -1,0 +1,27 @@
+{
+  "name": "table",
+  "description": "Kumpulan komponen semantik untuk menyusun tabel data HTML",
+  "category": "data-display",
+  "frameworks": [
+    "react"
+  ],
+  "version": "0.1.0",
+  "files": {
+    "react": [
+      "table.tsx"
+    ]
+  },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": {
+    "cssVars": [
+      "--qlx-color-border",
+      "--qlx-color-muted"
+    ]
+  },
+  "docs": "docs/03-components/table",
+  "compatibility": {
+    "tailwind": ">=3.0.0",
+    "react": ">=18.0.0"
+  }
+}

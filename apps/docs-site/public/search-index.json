@@ -1,0 +1,532 @@
+[
+  {
+    "id": "accordion",
+    "title": "Accordion",
+    "description": "Panel terlipat vertikal untuk menampilkan/menyembunyikan konten",
+    "category": "layout",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/accordion",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "alert-dialog",
+    "title": "Alert-dialog",
+    "description": "Modal dialog khusus untuk tindakan konfirmasi krusial/destruktif",
+    "category": "overlay",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/alert-dialog",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "alert",
+    "title": "Alert",
+    "description": "Kotak notifikasi untuk pesan status, peringatan, atau error",
+    "category": "feedback",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/alert",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "aspect-ratio",
+    "title": "Aspect-ratio",
+    "description": "Container untuk mempertahankan rasio aspek gambar atau media",
+    "category": "layout",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/aspect-ratio",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "attachment",
+    "title": "Attachment",
+    "description": "Kartu preview dan hapus lampiran berkas/file upload",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/attachment",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "avatar",
+    "title": "Avatar",
+    "description": "Komponen gambar profil pengguna dengan fallback inisial",
+    "category": "data-display",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/avatar",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "badge",
+    "title": "Badge",
+    "description": "Label badge kecil untuk status, tag, atau jumlah",
+    "category": "data-display",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/badge",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "breadcrumb",
+    "title": "Breadcrumb",
+    "description": "Navigasi hierarki jalur halaman terakses",
+    "category": "navigation",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/breadcrumb",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "bubble",
+    "title": "Bubble",
+    "description": "Gelembung pesan percakapan untuk antarmuka obrolan (chat)",
+    "category": "data-display",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/bubble",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "button",
+    "title": "Button",
+    "description": "Elemen interaktif untuk memicu aksi (submit form, navigasi, trigger dialog, dll)",
+    "category": "actions",
+    "frameworks": [
+      "react",
+      "vue"
+    ],
+    "url": "/components/button",
+    "props": [
+      "`variant`",
+      "`size`",
+      "`disabled`",
+      "`loading`",
+      "`asChild` / `as`"
+    ],
+    "variants": [
+      "default",
+      "destructive",
+      "outline",
+      "ghost",
+      "link"
+    ]
+  },
+  {
+    "id": "calendar",
+    "title": "Calendar",
+    "description": "Grid kalender bulanan interaktif untuk navigasi dan pemilihan tanggal",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/calendar",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "card",
+    "title": "Card",
+    "description": "Container untuk visual grouping konten dengan padding dan radius konsisten",
+    "category": "layout",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/card",
+    "props": [
+      "`variant`",
+      "`as`",
+      "`padding`",
+      "`radius`"
+    ],
+    "variants": [
+      "default",
+      "outline"
+    ]
+  },
+  {
+    "id": "data-table",
+    "title": "Data-table",
+    "description": "Komponen tabel data dinamis dengan konfigurasi kolom dan state",
+    "category": "data-display",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/data-table",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "date-picker",
+    "title": "Date-picker",
+    "description": "Komponen input pemilih tanggal dengan popover kalender interaktif",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/date-picker",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "dialog",
+    "title": "Dialog",
+    "description": "Modal overlay dialog terakses untuk konfirmasi dan form",
+    "category": "overlay",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/dialog",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "dropdown",
+    "title": "Dropdown",
+    "description": "Menu opsi melayang untuk aksi, filter, single dan multi-select",
+    "category": "navigation",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/dropdown",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "empty",
+    "title": "Empty",
+    "description": "Komponen state kosong dengan ikon, judul, deskripsi, dan aksi opsional",
+    "category": "feedback",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/empty",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "field",
+    "title": "Field",
+    "description": "Wrapper form field dengan label, deskripsi, error message, dan indikator required",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/field",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "input",
+    "title": "Input",
+    "description": "Elemen input teks standar dengan dukungan label, error, prefix, suffix, dan icon",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/input",
+    "props": [
+      "`type`",
+      "`disabled`",
+      "`placeholder`",
+      "`value`",
+      "`onChange`",
+      "`error`",
+      "`required`",
+      "`label`",
+      "`id`",
+      "`name`",
+      "`asChild`",
+      "`prefix`",
+      "`suffix`",
+      "`icon`"
+    ],
+    "variants": []
+  },
+  {
+    "id": "message-scroller",
+    "title": "Message-scroller",
+    "description": "Container gulir pesan chat otomatis dengan kemampuan scroll-to-bottom",
+    "category": "data-display",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/message-scroller",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "message",
+    "title": "Message",
+    "description": "Komponen pesan percakapan terstruktur dengan pengirim, bubble, status, dan timestamp",
+    "category": "data-display",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/message",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "pagination",
+    "title": "Pagination",
+    "description": "Navigasi pagination terstruktur untuk pembagian halaman konten",
+    "category": "navigation",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/pagination",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "scroll-area",
+    "title": "Scroll-area",
+    "description": "Area gulir kustom dengan styling scrollbar yang konsisten",
+    "category": "layout",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/scroll-area",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "select",
+    "title": "Select",
+    "description": "Dropdown pilihan tunggal dengan pemicu kustom dan menu terakses",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/select",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "sidebar",
+    "title": "Sidebar",
+    "description": "Panel navigasi samping yang dapat diciutkan (collapsible sidebar)",
+    "category": "layout",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/sidebar",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "skeleton",
+    "title": "Skeleton",
+    "description": "Placeholder animasi pemuatan untuk merepresentasikan konten sebelum selesai di-fetch",
+    "category": "feedback",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/skeleton",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "slider",
+    "title": "Slider",
+    "description": "Komponen pemilih rentang angka geser (range slider)",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/slider",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "spinner",
+    "title": "Spinner",
+    "description": "Indikator loading animasi berputar",
+    "category": "feedback",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/spinner",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "switch",
+    "title": "Switch",
+    "description": "Kontrol toggle switch dua kondisi aktif/nonaktif",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/switch",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "table",
+    "title": "Table",
+    "description": "Kumpulan komponen semantik untuk menyusun tabel data HTML",
+    "category": "data-display",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/table",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "tabs",
+    "title": "Tabs",
+    "description": "Komponen tab panel navigasi untuk beralih antar tampilan konten",
+    "category": "navigation",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/tabs",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "textarea",
+    "title": "Textarea",
+    "description": "Area input teks multibaris dengan fokus dan ring styling",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/textarea",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "toast",
+    "title": "Toast",
+    "description": "Notifikasi pop-up non-blocking sementara (toast alert)",
+    "category": "feedback",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/toast",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "toggle-group",
+    "title": "Toggle-group",
+    "description": "Kumpulan tombol toggle untuk seleksi tunggal atau banyak",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/toggle-group",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "toggle",
+    "title": "Toggle",
+    "description": "Tombol dua kondisi yang dapat ditekan (pressed / unpressed)",
+    "category": "forms",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/toggle",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "tooltip",
+    "title": "Tooltip",
+    "description": "Popup info mengambang yang muncul saat kursor diarahkan atau fokus",
+    "category": "overlay",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/tooltip",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "typography",
+    "title": "Typography",
+    "description": "Koleksi komponen tipografi semantik untuk heading, paragraf, dan teks terstruktur",
+    "category": "typography",
+    "frameworks": [
+      "react"
+    ],
+    "url": "/components/typography",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "getting-started",
+    "title": "Getting Started",
+    "description": "Installation and quick start guide",
+    "category": "guides",
+    "frameworks": [],
+    "url": "/getting-started",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "installation",
+    "title": "Installation",
+    "description": "How to install QLXion UI",
+    "category": "guides",
+    "frameworks": [],
+    "url": "/getting-started/installation",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "cli",
+    "title": "CLI",
+    "description": "Command line interface usage",
+    "category": "guides",
+    "frameworks": [],
+    "url": "/getting-started/cli",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "theming",
+    "title": "Theming",
+    "description": "Customizing themes and design tokens",
+    "category": "guides",
+    "frameworks": [],
+    "url": "/theming",
+    "props": [],
+    "variants": []
+  },
+  {
+    "id": "playground",
+    "title": "Playground",
+    "description": "Interactive component playground",
+    "category": "guides",
+    "frameworks": [],
+    "url": "/playground",
+    "props": [],
+    "variants": []
+  }
+]

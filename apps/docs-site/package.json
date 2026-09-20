@@ -1,0 +1,26 @@
+{
+  "name": "docs-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"docs site dev\" && exit 0",
+    "build": "echo \"docs site build\" && exit 0",
+    "lint": "eslint src",
+    "test": "echo \"no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@qlxion-ui/core-react": "workspace:*",
+    "@qlxion-ui/core-vue": "workspace:*",
+    "@qlxion-ui/tokens": "workspace:*",
+    "@qlxion-ui/utils": "workspace:^",
+    "flexsearch": "^0.8.212",
+    "next": "^16.3.5",
+    "react-dom": "^19.3.0",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.3.0",
+    "typescript": "^5.0.0"
+  }
+}

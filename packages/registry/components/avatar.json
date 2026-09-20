@@ -1,0 +1,13 @@
+{
+  "name": "avatar",
+  "description": "Komponen gambar profil pengguna dengan fallback inisial",
+  "category": "data-display",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["avatar.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-muted", "--qlx-color-muted-foreground"] },
+  "docs": "docs/03-components/avatar",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

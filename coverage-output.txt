@@ -1,0 +1,162 @@
+﻿
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.1 [39m[90mE:/qlxion/qlxion-ui/packages/core-react[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+node.exe : [90mstderr[2m | src/input/input.test.tsx[2m > [22m[2mInput[2m > [22m[2mcontrolled value[2m > [22m[2mreflects controlled val
+ue
+At C:\nvm4w\nodejs\npx.ps1:16 char:5
++     & "$basedir/node$exe"  "$basedir/node_modules/npm/bin/npx-cli.js" ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([90mstderr[2m...ontrolled value:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[22m[39mYou provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be m
+utable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
+
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ [32mΓ£ô[39m src/field/field.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 277[2mms[22m[39m
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ [32mΓ£ô[39m src/dialog/dialog.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 403[2mms[22m[39m
+   [32mΓ£ô[39m Dialog [2m(2)[22m
+     [33m[2mΓ£ô[22m[39m passes axe-core accessibility when open[33m 333[2mms[22m[39m
+ [32mΓ£ô[39m src/input/input.test.tsx [2m([22m[2m21 tests[22m[2m)[22m[33m 486[2mms[22m[39m
+ [32mΓ£ô[39m src/empty/empty.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 262[2mms[22m[39m
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ [32mΓ£ô[39m src/slider/slider.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 382[2mms[22m[39m
+   [32mΓ£ô[39m Slider [2m(1)[22m
+     [33m[2mΓ£ô[22m[39m handles value change on input range[33m 379[2mms[22m[39m
+ [32mΓ£ô[39m src/breadcrumb/breadcrumb.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 477[2mms[22m[39m
+   [32mΓ£ô[39m Breadcrumb [2m(2)[22m
+     [33m[2mΓ£ô[22m[39m passes axe-core accessibility[33m 419[2mms[22m[39m
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ [32mΓ£ô[39m src/alert/alert.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 306[2mms[22m[39m
+ [32mΓ£ô[39m src/button/button.test.tsx [2m([22m[2m21 tests[22m[2m)[22m[33m 381[2mms[22m[39m
+ [32mΓ£ô[39m src/badge/badge.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 310[2mms[22m[39m
+ [32mΓ£ô[39m src/date-picker/date-picker.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 349[2mms[22m[39m
+   [32mΓ£ô[39m DatePicker [2m(1)[22m
+     [33m[2mΓ£ô[22m[39m opens calendar popover when clicked[33m 347[2mms[22m[39m
+ [32mΓ£ô[39m src/select/select.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 323[2mms[22m[39m
+   [32mΓ£ô[39m Select [2m(1)[22m
+     [33m[2mΓ£ô[22m[39m selects an item value[33m 321[2mms[22m[39m
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ [32mΓ£ô[39m src/card/card.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 360[2mms[22m[39m
+ [32mΓ£ô[39m src/toggle-group/toggle-group.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 268[2mms[22m[39m
+ [32mΓ£ô[39m src/tabs/tabs.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 258[2mms[22m[39m
+ [32mΓ£ô[39m src/typography/typography.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 281[2mms[22m[39m
+ [32mΓ£ô[39m src/toggle/toggle.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 245[2mms[22m[39m
+ [32mΓ£ô[39m src/tooltip/tooltip.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 303[2mms[22m[39m
+   [32mΓ£ô[39m Tooltip [2m(1)[22m
+     [33m[2mΓ£ô[22m[39m displays content on hover or focus[33m 301[2mms[22m[39m
+ [32mΓ£ô[39m src/table/table.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 279[2mms[22m[39m
+ [32mΓ£ô[39m src/sidebar/sidebar.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 256[2mms[22m[39m
+ [32mΓ£ô[39m src/aspect-ratio/aspect-ratio.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 242[2mms[22m[39m
+ [32mΓ£ô[39m src/pagination/pagination.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 233[2mms[22m[39m
+ [32mΓ£ô[39m src/spinner/spinner.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 198[2mms[22m[39m
+ [32mΓ£ô[39m src/toast/toast.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 245[2mms[22m[39m
+ [32mΓ£ô[39m src/switch/switch.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 248[2mms[22m[39m
+ [32mΓ£ô[39m src/attachment/attachment.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 72[2mms[22m[39m
+ [32mΓ£ô[39m src/accordion/accordion.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 69[2mms[22m[39m
+ [32mΓ£ô[39m src/alert-dialog/alert-dialog.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 81[2mms[22m[39m
+ [32mΓ£ô[39m src/dropdown/dropdown.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 72[2mms[22m[39m
+ [32mΓ£ô[39m src/calendar/calendar.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 83[2mms[22m[39m
+ [32mΓ£ô[39m src/data-table/data-table.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 71[2mms[22m[39m
+ [32mΓ£ô[39m src/avatar/avatar.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 62[2mms[22m[39m
+ [32mΓ£ô[39m src/message/message.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 66[2mms[22m[39m
+ [32mΓ£ô[39m src/bubble/bubble.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 58[2mms[22m[39m
+ [32mΓ£ô[39m src/message-scroller/message-scroller.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 55[2mms[22m[39m
+ [32mΓ£ô[39m src/scroll-area/scroll-area.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 52[2mms[22m[39m
+ [32mΓ£ô[39m src/textarea/textarea.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 44[2mms[22m[39m
+ [32mΓ£ô[39m src/skeleton/skeleton.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 42[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m37 passed[39m[22m[90m (37)[39m
+[2m      Tests [22m [1m[32m93 passed[39m[22m[90m (93)[39m
+[2m   Start at [22m 01:15:51
+[2m   Duration [22m 36.45s[2m (environment 65%, setup 18%, tests 9%, import 5%, worker 3%, transform 1%)[22m
+
+[2mEnvironment [22m [33mjsdom was created 37 times[39m[2m ┬╖ 60.16s total, 65% of tracked time[22m
+[2m            [22m [2mcreate it once per worker with [22m[33mpool: 'vmThreads'[39m[2m (keeps per-file isolation) or [22m[33misolate: false[39m[2m (shares it across files)[22m
+[2m            [22m [2mlearn more: https://vitest.dev/guide/improving-performance#test-environments[22m
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   85.98 |     71.2 |   79.48 |   89.01 |                   
+ accordion         |   84.21 |       52 |   85.71 |   86.11 |                   
+  accordion.tsx    |   84.21 |       52 |   85.71 |   86.11 | 43,48-52          
+ alert             |     100 |      100 |     100 |     100 |                   
+  alert.tsx        |     100 |      100 |     100 |     100 |                   
+ alert-dialog      |     100 |      100 |     100 |     100 |                   
+  alert-dialog.tsx |     100 |      100 |     100 |     100 |                   
+ aspect-ratio      |     100 |      100 |     100 |     100 |                   
+  aspect-ratio.tsx |     100 |      100 |     100 |     100 |                   
+ attachment        |     100 |    88.88 |     100 |     100 |                   
+  attachment.tsx   |     100 |    88.88 |     100 |     100 | 19                
+ avatar            |      80 |       75 |      75 |   85.71 |                   
+  avatar.tsx       |      80 |       75 |      75 |   85.71 | 40-41             
+ badge             |     100 |      100 |     100 |     100 |                   
+  badge.tsx        |     100 |      100 |     100 |     100 |                   
+ breadcrumb        |   95.23 |      100 |   85.71 |   95.23 |                   
+  breadcrumb.tsx   |   95.23 |      100 |   85.71 |   95.23 | 88                
+ bubble            |     100 |    53.33 |     100 |     100 |                   
+  bubble.tsx       |     100 |    53.33 |     100 |     100 | 31-34,45-52       
+ button            |     100 |      100 |     100 |     100 |                   
+  button.tsx       |     100 |      100 |     100 |     100 |                   
+ calendar          |   84.44 |    72.97 |   83.33 |   92.68 |                   
+  calendar.tsx     |   84.44 |    72.97 |   83.33 |   92.68 | 29,33,54          
+ card              |     100 |      100 |     100 |     100 |                   
+  card.tsx         |     100 |      100 |     100 |     100 |                   
+ data-table        |     100 |       80 |     100 |     100 |                   
+  data-table.tsx   |     100 |       80 |     100 |     100 | 47                
+ date-picker       |   56.25 |    57.14 |      60 |   57.14 |                   
+  date-picker.tsx  |   56.25 |    57.14 |      60 |   57.14 | 28-32,36-37       
+ dialog            |   79.62 |    53.33 |   58.82 |   78.84 |                   
+  dialog.tsx       |   79.62 |    53.33 |   58.82 |   78.84 | ...30,144,185-192 
+ dropdown          |   68.75 |    36.66 |      70 |    75.6 |                   
+  dropdown.tsx     |   68.75 |    36.66 |      70 |    75.6 | 41-46,118-122     
+ empty             |     100 |    85.71 |     100 |     100 |                   
+  empty.tsx        |     100 |    85.71 |     100 |     100 | 20                
+ field             |     100 |    95.65 |     100 |     100 |                   
+  field.tsx        |     100 |    95.65 |     100 |     100 | 18                
+ input             |    90.9 |    91.42 |     100 |    90.9 |                   
+  input.tsx        |    90.9 |    91.42 |     100 |    90.9 | 87                
+ message           |     100 |       70 |     100 |     100 |                   
+  message.tsx      |     100 |       70 |     100 |     100 | 32                
+ message-scroller  |   91.66 |       75 |      75 |     100 |                   
+  ...-scroller.tsx |   91.66 |       75 |      75 |     100 | 20                
+ pagination        |   95.23 |      100 |   85.71 |   95.23 |                   
+  pagination.tsx   |   95.23 |      100 |   85.71 |   95.23 | 87                
+ scroll-area       |     100 |    71.42 |     100 |     100 |                   
+  scroll-area.tsx  |     100 |    71.42 |     100 |     100 | 16-17             
+ select            |   97.82 |    70.96 |     100 |     100 |                   
+  select.tsx       |   97.82 |    70.96 |     100 |     100 | 35-64,97-100,152  
+ sidebar           |     100 |    66.66 |     100 |     100 |                   
+  sidebar.tsx      |     100 |    66.66 |     100 |     100 | 16                
+ skeleton          |     100 |      100 |     100 |     100 |                   
+  skeleton.tsx     |     100 |      100 |     100 |     100 |                   
+ slider            |     100 |       75 |     100 |     100 |                   
+  slider.tsx       |     100 |       75 |     100 |     100 | 31-37             
+ spinner           |     100 |      100 |     100 |     100 |                   
+  spinner.tsx      |     100 |      100 |     100 |     100 |                   
+ switch            |   92.85 |    72.72 |     100 |     100 |                   
+  switch.tsx       |   92.85 |    72.72 |     100 |     100 | 18-24             
+ table             |   91.66 |      100 |      75 |   91.66 |                   
+  table.tsx        |   91.66 |      100 |      75 |   91.66 | 42,96             
+ tabs              |   93.54 |    70.58 |     100 |     100 |                   
+  tabs.tsx         |   93.54 |    70.58 |     100 |     100 | 21-65,99,108      
+ textarea          |     100 |      100 |     100 |     100 |                   
+  textarea.tsx     |     100 |      100 |     100 |     100 |                   
+ toast             |   86.66 |       75 |      75 |   92.85 |                   
+  toast.tsx        |   86.66 |       75 |      75 |   92.85 | 75                
+ toggle            |   93.33 |     92.3 |     100 |     100 |                   
+  toggle.tsx       |   93.33 |     92.3 |     100 |     100 | 57                
+ toggle-group      |   74.07 |       48 |     100 |   74.07 |                   
+  toggle-group.tsx |   74.07 |       48 |     100 |   74.07 | 50-57,90          
+ tooltip           |   77.77 |    71.42 |   71.42 |   86.66 |                   
+  tooltip.tsx      |   77.77 |    71.42 |   71.42 |   86.66 | 38-39             
+ typography        |      20 |      100 |      20 |      20 |                   
+  typography.tsx   |      20 |      100 |      20 |      20 | 14-32,53-79       
+-------------------|---------|----------|---------|---------|-------------------

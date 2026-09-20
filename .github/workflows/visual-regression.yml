@@ -1,0 +1,50 @@
+name: Visual Regression
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'packages/core-react/**'
+      - 'packages/core-vue/**'
+      - 'apps/visual-regression/**'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'packages/core-react/**'
+      - 'packages/core-vue/**'
+      - 'apps/visual-regression/**'
+  workflow_dispatch:
+
+jobs:
+  visual-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Generate fixtures
+        run: pnpm -F @qlxion-ui/visual-regression generate-fixtures
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install chromium
+
+      - name: Run visual regression tests
+        run: pnpm -F @qlxion-ui/visual-regression test
+
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diff-screenshots
+          path: apps/visual-regression/tests/__snapshots__/
+          retention-days: 7

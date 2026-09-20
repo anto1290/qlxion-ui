@@ -1,0 +1,13 @@
+{
+  "name": "slider",
+  "description": "Komponen pemilih rentang angka geser (range slider)",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["slider.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-primary", "--qlx-color-secondary"] },
+  "docs": "docs/03-components/slider",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "skeleton",
+  "description": "Placeholder animasi pemuatan untuk merepresentasikan konten sebelum selesai di-fetch",
+  "category": "feedback",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["skeleton.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-muted"] },
+  "docs": "docs/03-components/skeleton",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

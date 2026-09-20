@@ -1,0 +1,13 @@
+{
+  "name": "message-scroller",
+  "description": "Container gulir pesan chat otomatis dengan kemampuan scroll-to-bottom",
+  "category": "data-display",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["message-scroller.tsx"] },
+  "dependencies": [],
+  "registryDependencies": ["message"],
+  "tailwind": { "cssVars": [] },
+  "docs": "docs/03-components/message-scroller",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

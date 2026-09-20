@@ -1,0 +1,8 @@
+{
+  "name": "examples",
+  "private": true,
+  "scripts": {
+    "build": "echo \"examples build\" && exit 0",
+    "lint": "echo \"examples lint\" && exit 0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "calendar",
+  "description": "Grid kalender bulanan interaktif untuk navigasi dan pemilihan tanggal",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["calendar.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-card", "--qlx-color-primary"] },
+  "docs": "docs/03-components/calendar",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

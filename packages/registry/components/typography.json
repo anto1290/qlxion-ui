@@ -1,0 +1,13 @@
+{
+  "name": "typography",
+  "description": "Koleksi komponen tipografi semantik untuk heading, paragraf, dan teks terstruktur",
+  "category": "typography",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["typography.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-muted-foreground"] },
+  "docs": "docs/03-components/typography",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tooltip",
+  "description": "Popup info mengambang yang muncul saat kursor diarahkan atau fokus",
+  "category": "overlay",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["tooltip.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-primary", "--qlx-color-primary-foreground"] },
+  "docs": "docs/03-components/tooltip",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

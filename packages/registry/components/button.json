@@ -1,0 +1,30 @@
+{
+  "name": "button",
+  "description": "Elemen interaktif untuk memicu aksi (submit form, navigasi, trigger dialog, dll)",
+  "category": "actions",
+  "frameworks": ["react", "vue"],
+  "version": "0.1.0",
+  "files": {
+    "react": ["button.tsx"],
+    "vue": ["Button/Button.vue"]
+  },
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "registryDependencies": [],
+  "tailwind": {
+    "cssVars": [
+      "--qlx-color-primary",
+      "--qlx-color-destructive",
+      "--qlx-color-background",
+      "--qlx-color-foreground",
+      "--qlx-color-ring",
+      "--qlx-radius-md"
+    ]
+  },
+  "docs": "docs/03-components/button",
+  "compatibility": {
+    "tailwind": ">=3.0.0",
+    "react": ">=18.0.0"
+  }
+}

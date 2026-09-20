@@ -1,0 +1,13 @@
+{
+  "name": "date-picker",
+  "description": "Komponen input pemilih tanggal dengan popover kalender interaktif",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["date-picker.tsx"] },
+  "dependencies": [],
+  "registryDependencies": ["calendar"],
+  "tailwind": { "cssVars": ["--qlx-color-input", "--qlx-color-popover"] },
+  "docs": "docs/03-components/date-picker",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

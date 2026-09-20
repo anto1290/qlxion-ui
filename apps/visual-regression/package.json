@@ -1,0 +1,24 @@
+{
+  "name": "@qlxion-ui/visual-regression",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:update": "playwright test --update-snapshots",
+    "test:ui": "playwright test --ui",
+    "generate-fixtures": "tsx src/generate-fixture.ts",
+    "scaffold": "pnpm generate-fixtures && pnpm test:update"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@qlxion-ui/core-react": "workspace:*",
+    "@qlxion-ui/core-vue": "workspace:*",
+    "@qlxion-ui/tokens": "workspace:*",
+    "@qlxion-ui/utils": "workspace:*",
+    "@types/node": "^22.0.0",
+    "playwright": "^1.40.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "alert",
+  "description": "Kotak notifikasi untuk pesan status, peringatan, atau error",
+  "category": "feedback",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["alert.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-background", "--qlx-color-foreground", "--qlx-color-destructive"] },
+  "docs": "docs/03-components/alert",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

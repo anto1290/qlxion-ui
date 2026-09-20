@@ -1,0 +1,13 @@
+{
+  "name": "switch",
+  "description": "Kontrol toggle switch dua kondisi aktif/nonaktif",
+  "category": "forms",
+  "frameworks": ["react"],
+  "version": "0.1.0",
+  "files": { "react": ["switch.tsx"] },
+  "dependencies": [],
+  "registryDependencies": [],
+  "tailwind": { "cssVars": ["--qlx-color-primary", "--qlx-color-input"] },
+  "docs": "docs/03-components/switch",
+  "compatibility": { "tailwind": ">=3.0.0", "react": ">=18.0.0" }
+}

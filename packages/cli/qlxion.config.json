@@ -1,0 +1,11 @@
+{
+  "framework": "react",
+  "tailwindConfig": "tailwind.config.ts",
+  "tsx": true,
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui"
+  },
+  "cssVariables": true
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@qlxion-ui/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/tokens.json",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/tokens.json"
+    },
+    "./tailwind": {
+      "default": "./dist/tailwind.config.cjs"
+    },
+    "./css": {
+      "default": "./dist/tokens.css"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build-tokens.mjs && tsc",
+    "lint": "eslint src",
+    "test": "echo \"no test specified\" && exit 0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
+
