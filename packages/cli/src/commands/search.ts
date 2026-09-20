@@ -19,16 +19,19 @@ export const searchCommand = new Command("search")
   .description("Cari komponen di registry berdasarkan nama/deskripsi/kategori.")
   .option("--json", "Output JSON")
   .action((query, opts) => {
-    let results = listRegistryComponents()
-      .map(n => getRegistryComponent(n))
-      .filter(c =>
-        c && (fuzzy(query, c.name) || fuzzy(query, c.description) || fuzzy(query, c.category))
+    const results = listRegistryComponents()
+      .map((n) => getRegistryComponent(n))
+      .filter(
+        (c) =>
+          c &&
+          (fuzzy(query, c.name) || fuzzy(query, c.description ?? "") || fuzzy(query, c.category))
       );
     if (opts.json) {
       console.log(JSON.stringify(results, null, 2));
     } else {
       if (!results.length) return logInfo("Tidak ada hasil");
-      results.forEach(c => {
+      results.forEach((c) => {
+        if (!c) return;
         logInfo(`${c.name} (${c.category})`);
         console.log(`  ${c.description}`);
       });

@@ -1,8 +1,10 @@
 import * as React from "react";
 import { cn } from "@qlxion-ui/utils";
 
-export interface SwitchProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> {
+export interface SwitchProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "onChange"
+> {
   checked?: boolean;
   defaultChecked?: boolean;
   onCheckedChange?: (checked: boolean) => void;
@@ -10,7 +12,14 @@ export interface SwitchProps
 
 const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
   (
-    { className, checked: controlledChecked, defaultChecked = false, onCheckedChange, disabled, ...props },
+    {
+      className,
+      checked: controlledChecked,
+      defaultChecked = false,
+      onCheckedChange,
+      disabled,
+      ...props
+    },
     ref
   ) => {
     const [uncontrolledChecked, setUncontrolledChecked] = React.useState(defaultChecked);

@@ -1,10 +1,14 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
-import { join, dirname, resolve } from "path";
+import { join, dirname } from "path";
 import { diffLines } from "diff";
 import { ComponentSourceFile } from "../types/index.js";
 import { getComponentSourceFiles, readComponentSourceFile } from "./registry.js";
 
-export function getComponentFiles(componentName: string, framework: "react" | "next", config: any): ComponentSourceFile[] {
+export function getComponentFiles(
+  componentName: string,
+  framework: "react" | "next",
+  config: any
+): ComponentSourceFile[] {
   const sourceFiles = getComponentSourceFiles(componentName, "react");
   const files: ComponentSourceFile[] = [];
 
@@ -51,9 +55,12 @@ export function showDiff(oldContent: string, newContent: string, filePath: strin
   const diff = diffLines(oldContent, newContent);
   let output = `\nDiff for ${filePath}:\n`;
   for (const part of diff) {
-    const color = part.added ? "green" : part.removed ? "red" : "gray";
     const prefix = part.added ? "+" : part.removed ? "-" : " ";
-    const lines = part.value.split("\n").filter((l) => l).map((l) => `${prefix} ${l}`).join("\n");
+    const lines = part.value
+      .split("\n")
+      .filter((l) => l)
+      .map((l) => `${prefix} ${l}`)
+      .join("\n");
     output += lines + "\n";
   }
   return output;
@@ -64,7 +71,11 @@ export function generateDiff(oldContent: string, newContent: string): string {
   return diff
     .map((part) => {
       const prefix = part.added ? "+" : part.removed ? "-" : " ";
-      return part.value.split("\n").filter((l) => l).map((l) => `${prefix} ${l}`).join("\n");
+      return part.value
+        .split("\n")
+        .filter((l) => l)
+        .map((l) => `${prefix} ${l}`)
+        .join("\n");
     })
     .join("\n");
 }

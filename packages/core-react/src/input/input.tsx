@@ -27,7 +27,10 @@ const inputVariants = cva(
 export type InputVariant = "default" | "destructive";
 export type InputSize = "default" | "sm" | "lg";
 
-export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "prefix"> {
+export interface InputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "size" | "prefix"
+> {
   variant?: InputVariant;
   size?: InputSize;
   asChild?: boolean;
@@ -67,9 +70,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const inputEl = (
       <input
         type={type}
-        className={cn(inputVariants({ variant: variant ?? "default", size: size ?? "default" }), className, {
-          "border-destructive focus-visible:ring-destructive": !!error,
-        })}
+        className={cn(
+          inputVariants({ variant: variant ?? "default", size: size ?? "default" }),
+          className,
+          {
+            "border-destructive focus-visible:ring-destructive": !!error,
+          }
+        )}
         ref={ref}
         disabled={disabled}
         id={inputId}
@@ -101,9 +108,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <div className={cn("relative flex items-center", label && "mt-2")}>
           {icon && <span className="absolute left-3 text-muted-foreground">{icon}</span>}
           {prefix && <span className="absolute left-3 text-muted-foreground">{prefix}</span>}
-          <div
-            className={cn("flex-1", icon || prefix ? "pl-8" : "", suffix ? "pr-8" : "")}
-          >
+          <div className={cn("flex-1", icon || prefix ? "pl-8" : "", suffix ? "pr-8" : "")}>
             {inputEl}
           </div>
           {suffix && <span className="absolute right-3 text-muted-foreground">{suffix}</span>}

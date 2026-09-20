@@ -1,8 +1,10 @@
 import * as React from "react";
 import { cn } from "@qlxion-ui/utils";
 
-export interface SliderProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange"> {
+export interface SliderProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "value" | "onChange"
+> {
   value?: number;
   defaultValue?: number;
   min?: number;
@@ -43,10 +45,7 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
     return (
       <div className={cn("relative flex w-full touch-none select-none items-center", className)}>
         <div className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
-          <div
-            className="h-full bg-primary transition-all"
-            style={{ width: `${percentage}%` }}
-          />
+          <div className="h-full bg-primary transition-all" style={{ width: `${percentage}%` }} />
         </div>
         <input
           ref={ref}

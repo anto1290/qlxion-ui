@@ -8,7 +8,14 @@ export interface EmptyProps extends React.HTMLAttributes<HTMLDivElement> {
   action?: React.ReactNode;
 }
 
-export function Empty({ className, title = "Empty", description, icon, action, ...props }: EmptyProps) {
+export function Empty({
+  className,
+  title = "Empty",
+  description,
+  icon,
+  action,
+  ...props
+}: EmptyProps) {
   return (
     <div
       className={cn(

@@ -13,7 +13,10 @@ export function TypographyH1({ className, ...props }: React.HTMLAttributes<HTMLH
 export function TypographyH2({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
-      className={cn("scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0", className)}
+      className={cn(
+        "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+        className
+      )}
       {...props}
     />
   );
@@ -21,29 +24,18 @@ export function TypographyH2({ className, ...props }: React.HTMLAttributes<HTMLH
 
 export function TypographyH3({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3
-      className={cn("scroll-m-20 text-2xl font-semibold tracking-tight", className)}
-      {...props}
-    />
+    <h3 className={cn("scroll-m-20 text-2xl font-semibold tracking-tight", className)} {...props} />
   );
 }
 
 export function TypographyH4({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h4
-      className={cn("scroll-m-20 text-xl font-semibold tracking-tight", className)}
-      {...props}
-    />
+    <h4 className={cn("scroll-m-20 text-xl font-semibold tracking-tight", className)} {...props} />
   );
 }
 
 export function TypographyP({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return (
-    <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
-      {...props}
-    />
-  );
+  return <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)} {...props} />;
 }
 
 export function TypographyBlockquote({
@@ -58,13 +50,11 @@ export function TypographyBlockquote({
   );
 }
 
-export function TypographyLead({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return (
-    <p
-      className={cn("text-xl text-muted-foreground", className)}
-      {...props}
-    />
-  );
+export function TypographyLead({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) {
+  return <p className={cn("text-xl text-muted-foreground", className)} {...props} />;
 }
 
 export function TypographyLarge({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
@@ -75,6 +65,9 @@ export function TypographySmall({ className, ...props }: React.HTMLAttributes<HT
   return <small className={cn("text-sm font-medium leading-none", className)} {...props} />;
 }
 
-export function TypographyMuted({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
+export function TypographyMuted({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) {
   return <p className={cn("text-sm text-muted-foreground", className)} {...props} />;
 }

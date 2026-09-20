@@ -16,11 +16,14 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
     const errorId = React.useId();
 
     const childWithLabel = React.isValidElement(children)
-      ? React.cloneElement(children as React.ReactElement<any>, {
-          id: htmlFor,
-          "aria-describedby": cn(description && descriptionId, error && errorId),
-          "aria-invalid": error ? "true" : undefined,
-        } as any)
+      ? React.cloneElement(
+          children as React.ReactElement<any>,
+          {
+            id: htmlFor,
+            "aria-describedby": cn(description && descriptionId, error && errorId),
+            "aria-invalid": error ? "true" : undefined,
+          } as any
+        )
       : children;
 
     return (
@@ -35,10 +38,17 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
             )}
           >
             {label}
-            {required && <span className="text-destructive ml-1" aria-hidden="true">*</span>}
+            {required && (
+              <span className="text-destructive ml-1" aria-hidden="true">
+                *
+              </span>
+            )}
           </label>
         )}
-        <div className="relative" aria-describedby={cn(description && descriptionId, error && errorId)}>
+        <div
+          className="relative"
+          aria-describedby={cn(description && descriptionId, error && errorId)}
+        >
           {childWithLabel}
           {error && (
             <p id={errorId} className="mt-1 text-sm text-destructive" role="alert">

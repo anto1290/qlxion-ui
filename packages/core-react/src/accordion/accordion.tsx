@@ -31,7 +31,9 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
     },
     ref
   ) => {
-    const [uncontrolledValue, setUncontrolledValue] = React.useState<string | string[]>(defaultValue);
+    const [uncontrolledValue, setUncontrolledValue] = React.useState<string | string[]>(
+      defaultValue
+    );
     const isControlled = controlledValue !== undefined;
     const value = isControlled ? controlledValue : uncontrolledValue;
 
@@ -136,23 +138,22 @@ const AccordionTrigger = React.forwardRef<
 });
 AccordionTrigger.displayName = "AccordionTrigger";
 
-const AccordionContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, ref) => {
-  const itemContext = React.useContext(AccordionItemContext);
-  if (!itemContext.isOpen) return null;
+const AccordionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, ref) => {
+    const itemContext = React.useContext(AccordionItemContext);
+    if (!itemContext.isOpen) return null;
 
-  return (
-    <div
-      ref={ref}
-      className={cn("overflow-hidden text-sm pb-4 pt-0 text-muted-foreground", className)}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-});
+    return (
+      <div
+        ref={ref}
+        className={cn("overflow-hidden text-sm pb-4 pt-0 text-muted-foreground", className)}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 AccordionContent.displayName = "AccordionContent";
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

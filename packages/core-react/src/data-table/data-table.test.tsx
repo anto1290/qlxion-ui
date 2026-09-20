@@ -31,7 +31,10 @@ describe("DataTable", () => {
 describe("DataTable accessibility", () => {
   it("passes axe-core accessibility", async () => {
     const data = [{ id: "1", name: "Alice" }];
-    const columns = [{ key: "id", header: "ID" }, { key: "name", header: "Name" }];
+    const columns = [
+      { key: "id", header: "ID" },
+      { key: "name", header: "Name" },
+    ];
     const { container } = render(<DataTable columns={columns} data={data} />);
     const results = (await axe.run(container)) as AxeResults;
     expect(results.violations).toEqual([]);

@@ -1,13 +1,6 @@
 import * as React from "react";
 import { cn } from "@qlxion-ui/utils";
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "../table/table";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "../table/table";
 
 export interface ColumnDef<T> {
   key: string;

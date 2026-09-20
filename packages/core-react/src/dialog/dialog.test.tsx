@@ -3,13 +3,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import axe from "axe-core";
 import type { AxeResults } from "axe-core";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from "./dialog";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "./dialog";
 
 describe("Dialog", () => {
   it("opens and closes content on trigger click", () => {

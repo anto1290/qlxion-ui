@@ -1,12 +1,24 @@
 import { Command } from "commander";
 import { readConfig, configExists, validateConfig } from "../utils/config.js";
 import { resolveDependencies, validateComponentsExist } from "../utils/dependencies.js";
-import { getComponentFiles, fileExists, readFile, writeFile, showDiff, generateDiff } from "../utils/files.js";
-import { getMissingDependencies, addDependencies, installDependencies, getPackageJson } from "../utils/npm.js";
+import {
+  getComponentFiles,
+  fileExists,
+  readFile,
+  writeFile,
+  showDiff,
+  generateDiff,
+} from "../utils/files.js";
+import {
+  getMissingDependencies,
+  addDependencies,
+  installDependencies,
+  getPackageJson,
+} from "../utils/npm.js";
 import { confirm, logInfo, logSuccess, logWarn, logError, logStep } from "../utils/prompts.js";
 import { QlxionConfig } from "../types/index.js";
 import { join } from "path";
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
+import { writeFileSync, existsSync, mkdirSync } from "fs";
 
 const UTILS_CONTENT = `import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -88,11 +100,14 @@ function rewriteUtilsImport(content: string, config: QlxionConfig): string {
   // Rewrite internal component imports (e.g., "../table/table" -> "@/components/ui/table")
   const uiAlias = config.aliases.ui; // e.g., "@/components/ui"
   // Match imports like: from "../table/table" or from "../table"
-  result = result.replace(/from\s+["']\.\.\/([^/]+)\/([^"']+)["']/g, (match, componentName, exportPath) => {
-    // Check if this is a known component (simplified - just rewrite all relative imports to ui alias)
-    return `from "${uiAlias}/${componentName}"`;
-  });
-  
+  result = result.replace(
+    /from\s+["']\.\.\/([^/]+)\/([^"']+)["']/g,
+    (match, componentName, _exportPath) => {
+      // Check if this is a known component (simplified - just rewrite all relative imports to ui alias)
+      return `from "${uiAlias}/${componentName}"`;
+    }
+  );
+
   // Also match imports like: from "../table"
   result = result.replace(/from\s+["']\.\.\/([^"']+)["']/g, (match, componentName) => {
     return `from "${uiAlias}/${componentName}"`;
@@ -100,8 +115,6 @@ function rewriteUtilsImport(content: string, config: QlxionConfig): string {
 
   return result;
 }
-
-
 
 export const addCommand = new Command("add")
   .description("Add component(s) from the QLXion UI registry")

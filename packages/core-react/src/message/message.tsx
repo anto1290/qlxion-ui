@@ -11,19 +11,7 @@ export interface MessageProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Message = React.forwardRef<HTMLDivElement, MessageProps>(
-  (
-    {
-      className,
-      variant = "user",
-      sender,
-      avatar,
-      timestamp,
-      status,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, variant = "user", sender, avatar, timestamp, status, children, ...props }, ref) => {
     return (
       <div
         ref={ref}
@@ -34,16 +22,12 @@ const Message = React.forwardRef<HTMLDivElement, MessageProps>(
         )}
         {...props}
       >
-        {sender && (
-          <span className="text-xs text-muted-foreground px-1 font-medium">{sender}</span>
-        )}
+        {sender && <span className="text-xs text-muted-foreground px-1 font-medium">{sender}</span>}
         <Bubble variant={variant} timestamp={timestamp} avatar={avatar}>
           {children}
         </Bubble>
         {status && variant === "user" && (
-          <span className="text-[10px] text-muted-foreground px-1 capitalize">
-            {status}
-          </span>
+          <span className="text-[10px] text-muted-foreground px-1 capitalize">{status}</span>
         )}
       </div>
     );

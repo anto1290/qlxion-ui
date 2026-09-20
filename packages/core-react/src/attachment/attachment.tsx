@@ -23,12 +23,7 @@ const Attachment = React.forwardRef<HTMLDivElement, AttachmentProps>(
       >
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
           {icon ?? (
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -39,14 +34,8 @@ const Attachment = React.forwardRef<HTMLDivElement, AttachmentProps>(
           )}
         </div>
         <div className="flex-1 min-w-0 overflow-hidden text-left">
-          <p className="truncate font-medium text-foreground text-xs leading-none mb-1">
-            {name}
-          </p>
-          {size && (
-            <p className="text-[11px] text-muted-foreground leading-none">
-              {size}
-            </p>
-          )}
+          <p className="truncate font-medium text-foreground text-xs leading-none mb-1">{name}</p>
+          {size && <p className="text-[11px] text-muted-foreground leading-none">{size}</p>}
         </div>
         {onRemove && (
           <button
@@ -57,7 +46,12 @@ const Attachment = React.forwardRef<HTMLDivElement, AttachmentProps>(
             className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         )}

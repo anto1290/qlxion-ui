@@ -1,5 +1,13 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { ensureDir, fileExists, readFile, writeFile, showDiff } from "./files.js";
+import {
+  ensureDir,
+  fileExists,
+  readFile,
+  writeFile,
+  showDiff,
+  generateDiff,
+  getComponentFiles,
+} from "./files.js";
 import { join } from "path";
 import { existsSync, mkdirSync, rmSync } from "fs";
 
@@ -59,6 +67,26 @@ describe("files", () => {
       const diff = showDiff(oldContent, newContent, "test.txt");
       expect(diff).toContain("+ line3");
       expect(diff).toContain("- line2");
+    });
+  });
+
+  describe("generateDiff", () => {
+    it("returns diff string with + and - prefixes", () => {
+      const oldContent = "line1\nline2\nline3";
+      const newContent = "line1\nline2-modified\nline4";
+      const diff = generateDiff(oldContent, newContent);
+      expect(diff).toContain("+ line2-modified");
+      expect(diff).toContain("- line2");
+      expect(diff).toContain("+ line4");
+      expect(diff).toContain("- line3");
+    });
+  });
+
+  describe("getComponentFiles", () => {
+    it("returns component files for a valid component", () => {
+      const files = getComponentFiles("button", "react", { aliases: { ui: "@/components/ui" } });
+      expect(Array.isArray(files)).toBe(true);
+      expect(files.length).toBeGreaterThan(0);
     });
   });
 });

@@ -32,19 +32,25 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const open = ctrlOpen !== undefined ? ctrlOpen : uncontrolledOpen;
   const selectedValues = ctrlVal !== undefined ? ctrlVal : uncontrolledValues;
 
-  const setOpen = React.useCallback((next: boolean) => {
-    if (ctrlOpen === undefined) setUncontrolledOpen(next);
-    onOpenChange?.(next);
-  }, [ctrlOpen, onOpenChange]);
+  const setOpen = React.useCallback(
+    (next: boolean) => {
+      if (ctrlOpen === undefined) setUncontrolledOpen(next);
+      onOpenChange?.(next);
+    },
+    [ctrlOpen, onOpenChange]
+  );
 
-  const toggleValue = React.useCallback((val: string) => {
-    const next = selectedValues.includes(val)
-      ? selectedValues.filter((v) => v !== val)
-      : [...selectedValues, val];
-    if (ctrlVal === undefined) setUncontrolledValues(next);
-    onValueChange?.(next);
-    if (!multiple) setOpen(false);
-  }, [selectedValues, ctrlVal, onValueChange, multiple, setOpen]);
+  const toggleValue = React.useCallback(
+    (val: string) => {
+      const next = selectedValues.includes(val)
+        ? selectedValues.filter((v) => v !== val)
+        : [...selectedValues, val];
+      if (ctrlVal === undefined) setUncontrolledValues(next);
+      onValueChange?.(next);
+      if (!multiple) setOpen(false);
+    },
+    [selectedValues, ctrlVal, onValueChange, multiple, setOpen]
+  );
 
   return (
     <DropdownContext.Provider value={{ open, setOpen, selectedValues, toggleValue }}>
@@ -53,51 +59,53 @@ export const Dropdown: React.FC<DropdownProps> = ({
   );
 };
 
-export const DropdownTrigger = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  ({ onClick, className, children, ...props }, ref) => {
-    const ctx = React.useContext(DropdownContext);
-    return (
-      <button
-        ref={ref}
-        type="button"
-        aria-expanded={ctx?.open}
-        aria-haspopup="menu"
-        onClick={(e) => {
-          ctx?.setOpen(!ctx.open);
-          onClick?.(e);
-        }}
-        className={cn(
-          "inline-flex items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm font-medium shadow-xs hover:bg-accent",
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
-);
+export const DropdownTrigger = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ onClick, className, children, ...props }, ref) => {
+  const ctx = React.useContext(DropdownContext);
+  return (
+    <button
+      ref={ref}
+      type="button"
+      aria-expanded={ctx?.open}
+      aria-haspopup="menu"
+      onClick={(e) => {
+        ctx?.setOpen(!ctx.open);
+        onClick?.(e);
+      }}
+      className={cn(
+        "inline-flex items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm font-medium shadow-xs hover:bg-accent",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+});
 DropdownTrigger.displayName = "DropdownTrigger";
 
-export const DropdownContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, children, ...props }, ref) => {
-    const ctx = React.useContext(DropdownContext);
-    if (!ctx?.open) return null;
-    return (
-      <div
-        ref={ref}
-        role="menu"
-        className={cn(
-          "absolute right-0 z-50 mt-2 min-w-[8rem] rounded-md border border-border bg-popover p-1 text-popover-foreground shadow-lg",
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </div>
-    );
-  }
-);
+export const DropdownContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, children, ...props }, ref) => {
+  const ctx = React.useContext(DropdownContext);
+  if (!ctx?.open) return null;
+  return (
+    <div
+      ref={ref}
+      role="menu"
+      className={cn(
+        "absolute right-0 z-50 mt-2 min-w-[8rem] rounded-md border border-border bg-popover p-1 text-popover-foreground shadow-lg",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+});
 DropdownContent.displayName = "DropdownContent";
 
 export interface DropdownItemProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -135,16 +143,18 @@ export const DropdownItem = React.forwardRef<HTMLDivElement, DropdownItemProps>(
 );
 DropdownItem.displayName = "DropdownItem";
 
-export const DropdownCheckboxItem = React.forwardRef<HTMLDivElement, DropdownItemProps & { checked?: boolean }>(
-  ({ className, checked, value, children, ...props }, ref) => {
-    const ctx = React.useContext(DropdownContext);
-    const isChecked = checked !== undefined ? checked : (value ? ctx?.selectedValues.includes(value) : false);
-    return (
-      <DropdownItem ref={ref} value={value} className={cn("pl-6", className)} {...props}>
-        {isChecked && <span className="absolute left-1.5">✓</span>}
-        {children}
-      </DropdownItem>
-    );
-  }
-);
+export const DropdownCheckboxItem = React.forwardRef<
+  HTMLDivElement,
+  DropdownItemProps & { checked?: boolean }
+>(({ className, checked, value, children, ...props }, ref) => {
+  const ctx = React.useContext(DropdownContext);
+  const isChecked =
+    checked !== undefined ? checked : value ? ctx?.selectedValues.includes(value) : false;
+  return (
+    <DropdownItem ref={ref} value={value} className={cn("pl-6", className)} {...props}>
+      {isChecked && <span className="absolute left-1.5">✓</span>}
+      {children}
+    </DropdownItem>
+  );
+});
 DropdownCheckboxItem.displayName = "DropdownCheckboxItem";

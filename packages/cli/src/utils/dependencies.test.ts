@@ -11,10 +11,7 @@ function setup() {
   }
   mkdirSync(TEST_DIR, { recursive: true });
   // Create a minimal package.json
-  writeFileSync(
-    join(TEST_DIR, "package.json"),
-    JSON.stringify({ name: "test", dependencies: {} })
-  );
+  writeFileSync(join(TEST_DIR, "package.json"), JSON.stringify({ name: "test", dependencies: {} }));
 }
 
 function teardown() {

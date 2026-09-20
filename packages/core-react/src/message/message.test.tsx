@@ -20,9 +20,7 @@ describe("Message", () => {
 
 describe("Message accessibility", () => {
   it("passes axe-core accessibility", async () => {
-    const { container } = render(
-      <Message sender="Alice">Hello</Message>
-    );
+    const { container } = render(<Message sender="Alice">Hello</Message>);
     const results = (await axe.run(container)) as AxeResults;
     expect(results.violations).toEqual([]);
   });

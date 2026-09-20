@@ -6,7 +6,8 @@ const bubbleVariants = cva("relative max-w-[80%] rounded-2xl px-4 py-2.5 text-sm
     variant: {
       user: "ml-auto bg-primary text-primary-foreground rounded-br-xs",
       bot: "mr-auto bg-muted text-foreground rounded-bl-xs border border-border",
-      system: "mx-auto bg-accent/50 text-muted-foreground text-xs rounded-lg py-1 px-3 border border-border/50",
+      system:
+        "mx-auto bg-accent/50 text-muted-foreground text-xs rounded-lg py-1 px-3 border border-border/50",
     },
   },
   defaultVariants: {
@@ -28,15 +29,15 @@ const Bubble = React.forwardRef<HTMLDivElement, BubbleProps>(
       <div
         className={cn(
           "flex items-end gap-2 my-1",
-          variant === "user" ? "justify-end" : variant === "bot" ? "justify-start" : "justify-center"
+          variant === "user"
+            ? "justify-end"
+            : variant === "bot"
+              ? "justify-start"
+              : "justify-center"
         )}
       >
         {variant === "bot" && avatar && <div className="shrink-0 mb-1">{avatar}</div>}
-        <div
-          ref={ref}
-          className={cn(bubbleVariants({ variant }), className)}
-          {...props}
-        >
+        <div ref={ref} className={cn(bubbleVariants({ variant }), className)} {...props}>
           <div>{children}</div>
           {timestamp && (
             <span

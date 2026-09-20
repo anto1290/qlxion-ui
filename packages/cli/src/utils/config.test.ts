@@ -1,14 +1,22 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { readConfig, writeConfig, configExists, validateConfig, getDefaultConfig } from "./config.js";
-import { join, dirname } from "path";
-import { existsSync, writeFileSync, unlinkSync } from "fs";
+import {
+  readConfig,
+  writeConfig,
+  configExists,
+  validateConfig,
+  getDefaultConfig,
+} from "./config.js";
+import { join } from "path";
+import { existsSync, unlinkSync } from "fs";
+
+import { mkdirSync, rmSync } from "fs";
 
 const TEST_DIR = join(process.cwd(), ".test-temp");
 const CONFIG_PATH = join(TEST_DIR, "qlxion.config.json");
 
 function setup() {
   if (!existsSync(TEST_DIR)) {
-    require("fs").mkdirSync(TEST_DIR, { recursive: true });
+    mkdirSync(TEST_DIR, { recursive: true });
   }
 }
 
@@ -17,7 +25,7 @@ function teardown() {
     unlinkSync(CONFIG_PATH);
   }
   if (existsSync(TEST_DIR)) {
-    require("fs").rmdirSync(TEST_DIR);
+    rmSync(TEST_DIR, { recursive: true, force: true });
   }
 }
 

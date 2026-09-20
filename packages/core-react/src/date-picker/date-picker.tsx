@@ -75,11 +75,7 @@ export function DatePicker({
 
       {open && (
         <div className="absolute left-0 top-full z-50 mt-1 rounded-md border border-border bg-popover p-0 shadow-md">
-          <Calendar
-            value={selectedDate}
-            onChange={handleSelect}
-            className="border-0 shadow-none"
-          />
+          <Calendar value={selectedDate} onChange={handleSelect} className="border-0 shadow-none" />
         </div>
       )}
     </div>

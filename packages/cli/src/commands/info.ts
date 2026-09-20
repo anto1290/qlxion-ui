@@ -15,11 +15,15 @@ export const infoCommand = new Command("info")
     }
     if (opts.json) return console.log(JSON.stringify(c, null, 2));
     logInfo(c.name);
-    console.log(`Kategori: ${c.category}\nFramework: ${c.frameworks.join(", ")}\nVersi registry: ${c.version}`);
+    console.log(
+      `Kategori: ${c.category}\nFramework: ${c.frameworks.join(", ")}\nVersi registry: ${c.version}`
+    );
     if (c.dependencies?.length) console.log(`Dependency npm: ${c.dependencies.join(", ")}`);
     else console.log("Dependency npm: (tidak ada)");
-    if (c.registryDependencies?.length) console.log(`Registry dependency: ${c.registryDependencies.join(", ")}`);
+    if (c.registryDependencies?.length)
+      console.log(`Registry dependency: ${c.registryDependencies.join(", ")}`);
     else console.log("Registry dependency: (tidak ada)");
     console.log(`Dokumentasi: ${c.docs}`);
-    if (c.deprecated) logWarn(`Komponen ini deprecated${c.deprecatedReason?": "+c.deprecatedReason: ""}`);
+    if (c.deprecated)
+      logWarn(`Komponen ini deprecated${c.deprecatedReason ? ": " + c.deprecatedReason : ""}`);
   });

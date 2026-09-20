@@ -7,7 +7,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from ".
 
 describe("Select", () => {
   it("selects an item value", () => {
-    const { getByRole, getByText, queryByText } = render(
+    const { getByRole, getByText } = render(
       <Select defaultValue="id">
         <SelectTrigger>
           <SelectValue placeholder="Pilih Bahasa" />

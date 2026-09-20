@@ -41,8 +41,18 @@ export const Calendar: React.FC<CalendarProps> = ({
 
   const daysOfWeek = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
   const monthNames = [
-    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
   ];
 
   const handleSelectDate = (day: number) => {
@@ -66,22 +76,25 @@ export const Calendar: React.FC<CalendarProps> = ({
 
   const isToday = (day: number) => {
     const today = new Date();
-    return (
-      today.getFullYear() === year &&
-      today.getMonth() === month &&
-      today.getDate() === day
-    );
+    return today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
   };
 
   const isDayDisabled = (day: number) => {
     const d = new Date(year, month, day);
-    if (minDate && d < new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate())) return true;
-    if (maxDate && d > new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate())) return true;
+    if (minDate && d < new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate()))
+      return true;
+    if (maxDate && d > new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate()))
+      return true;
     return false;
   };
 
   return (
-    <div className={cn("p-3 bg-card rounded-lg border border-border inline-block shadow-xs", className)}>
+    <div
+      className={cn(
+        "p-3 bg-card rounded-lg border border-border inline-block shadow-xs",
+        className
+      )}
+    >
       <div className="flex items-center justify-between pb-3">
         <h3 className="font-semibold text-sm text-foreground">
           {monthNames[month]} {year}
@@ -105,7 +118,10 @@ export const Calendar: React.FC<CalendarProps> = ({
           </button>
         </div>
       </div>
-      <table className="w-full text-center text-xs border-collapse" aria-label={`Kalender ${monthNames[month]} ${year}`}>
+      <table
+        className="w-full text-center text-xs border-collapse"
+        aria-label={`Kalender ${monthNames[month]} ${year}`}
+      >
         <thead>
           <tr>
             {daysOfWeek.map((d) => (
@@ -116,41 +132,44 @@ export const Calendar: React.FC<CalendarProps> = ({
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: Math.ceil((firstDayIndex + daysInMonth) / 7) }).map((_, weekIdx) => (
-            <tr key={weekIdx}>
-              {Array.from({ length: 7 }).map((_, dayIdx) => {
-                const dayNumber = weekIdx * 7 + dayIdx - firstDayIndex + 1;
-                const isValidDay = dayNumber >= 1 && dayNumber <= daysInMonth;
-                const day = isValidDay ? dayNumber : null;
-                const selected = day !== null && isSelected(day);
-                const today = day !== null && isToday(day);
-                const disabled = day !== null && isDayDisabled(day);
+          {Array.from({ length: Math.ceil((firstDayIndex + daysInMonth) / 7) }).map(
+            (_, weekIdx) => (
+              <tr key={weekIdx}>
+                {Array.from({ length: 7 }).map((_, dayIdx) => {
+                  const dayNumber = weekIdx * 7 + dayIdx - firstDayIndex + 1;
+                  const isValidDay = dayNumber >= 1 && dayNumber <= daysInMonth;
+                  const day = isValidDay ? dayNumber : null;
+                  const selected = day !== null && isSelected(day);
+                  const today = day !== null && isToday(day);
+                  const disabled = day !== null && isDayDisabled(day);
 
-                return (
-                  <td key={dayIdx} className="p-1">
-                    {isValidDay ? (
-                      <button
-                        type="button"
-                        disabled={disabled}
-                        onClick={() => handleSelectDate(day!)}
-                        className={cn(
-                          "h-8 w-8 rounded-md text-sm font-normal transition-colors flex items-center justify-center",
-                          today && !selected && "border border-primary text-primary font-medium",
-                          selected && "bg-primary text-primary-foreground font-semibold hover:bg-primary/90",
-                          !selected && !today && "hover:bg-accent hover:text-accent-foreground",
-                          disabled && "opacity-30 cursor-not-allowed pointer-events-none"
-                        )}
-                      >
-                        {day}
-                      </button>
-                    ) : (
-                      <span className="h-8 w-8" />
-                    )}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
+                  return (
+                    <td key={dayIdx} className="p-1">
+                      {isValidDay ? (
+                        <button
+                          type="button"
+                          disabled={disabled}
+                          onClick={() => handleSelectDate(day!)}
+                          className={cn(
+                            "h-8 w-8 rounded-md text-sm font-normal transition-colors flex items-center justify-center",
+                            today && !selected && "border border-primary text-primary font-medium",
+                            selected &&
+                              "bg-primary text-primary-foreground font-semibold hover:bg-primary/90",
+                            !selected && !today && "hover:bg-accent hover:text-accent-foreground",
+                            disabled && "opacity-30 cursor-not-allowed pointer-events-none"
+                          )}
+                        >
+                          {day}
+                        </button>
+                      ) : (
+                        <span className="h-8 w-8" />
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            )
+          )}
         </tbody>
       </table>
     </div>

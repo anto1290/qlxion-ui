@@ -7,18 +7,14 @@ import { Attachment } from "./attachment";
 
 describe("Attachment", () => {
   it("renders attachment file name and size", () => {
-    const { getByText } = render(
-      <Attachment name="document.pdf" size="2.4 MB" />
-    );
+    const { getByText } = render(<Attachment name="document.pdf" size="2.4 MB" />);
     expect(getByText("document.pdf")).toBeInTheDocument();
     expect(getByText("2.4 MB")).toBeInTheDocument();
   });
 
   it("calls onRemove when remove button is clicked", () => {
     const handleRemove = vi.fn();
-    const { getByLabelText } = render(
-      <Attachment name="photo.jpg" onRemove={handleRemove} />
-    );
+    const { getByLabelText } = render(<Attachment name="photo.jpg" onRemove={handleRemove} />);
     fireEvent.click(getByLabelText("Hapus lampiran photo.jpg"));
     expect(handleRemove).toHaveBeenCalledTimes(1);
   });

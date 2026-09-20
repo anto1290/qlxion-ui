@@ -1,11 +1,10 @@
 import { readFileSync, existsSync } from "fs";
-import { join, resolve, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import { FrameworkDetectionResult } from "../types/index.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-export async function detectFramework(cwd: string = process.cwd()): Promise<FrameworkDetectionResult> {
+export async function detectFramework(
+  cwd: string = process.cwd()
+): Promise<FrameworkDetectionResult> {
   const packageJsonPath = join(cwd, "package.json");
   let packageJson: any = {};
 
@@ -34,7 +33,11 @@ export async function detectFramework(cwd: string = process.cwd()): Promise<Fram
   }
 
   // Check for Nuxt
-  if (dependencies.nuxt || existsSync(join(cwd, "nuxt.config.ts")) || existsSync(join(cwd, "nuxt.config.js"))) {
+  if (
+    dependencies.nuxt ||
+    existsSync(join(cwd, "nuxt.config.ts")) ||
+    existsSync(join(cwd, "nuxt.config.js"))
+  ) {
     return {
       framework: "nuxt",
       isTypeScript: existsSync(join(cwd, "tsconfig.json")),

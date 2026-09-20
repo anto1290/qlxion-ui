@@ -1,8 +1,8 @@
 import { Command } from "commander";
 import { logInfo, logError } from "../utils/prompts.js";
-import { readConfig, configExists, validateConfig } from "../utils/config.js";
+import { readConfig, configExists } from "../utils/config.js";
 import { listRegistryComponents, getRegistryComponent } from "../utils/registry.js";
-import { existsSync, readdirSync } from "fs";
+import { readdirSync } from "fs";
 import { join } from "path";
 
 export const listCommand = new Command("list")
@@ -27,14 +27,21 @@ export const listCommand = new Command("list")
       // List locally present components by checking components/ui/*
       let localComponents: string[] = [];
       try {
-        localComponents = readdirSync(join(cwd, config.aliases.ui.replace("@/", "src/"))).map(x => x.replace(/\..+$/, ""));
-      } catch {}
-      names = names.filter(x => localComponents.includes(x));
+        localComponents = readdirSync(join(cwd, config.aliases.ui.replace("@/", "src/"))).map((x) =>
+          x.replace(/\..+$/, "")
+        );
+      } catch {
+        // ignore
+      }
+      names = names.filter((x) => localComponents.includes(x));
     }
-    const all = names.map(n => getRegistryComponent(n)).filter(e => e && e.frameworks.includes(framework));
+    const all = names
+      .map((n) => getRegistryComponent(n))
+      .filter((e) => e && e.frameworks.includes(framework));
     // group by category
     const byCat: Record<string, any[]> = {};
-    all.forEach(c => {
+    all.forEach((c) => {
+      if (!c) return;
       if (!byCat[c.category]) byCat[c.category] = [];
       byCat[c.category].push(c);
     });
@@ -44,9 +51,9 @@ export const listCommand = new Command("list")
     }
     Object.keys(byCat)
       .sort()
-      .forEach(cat => {
+      .forEach((cat) => {
         logInfo(cat);
-        byCat[cat].forEach(c => {
+        byCat[cat].forEach((c) => {
           console.log(`  ${c.name}    ${c.description}`);
         });
       });

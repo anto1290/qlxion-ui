@@ -11,7 +11,11 @@ export async function confirm(message: string, initial = true): Promise<boolean>
   return response.value ?? false;
 }
 
-export async function select(message: string, choices: { title: string; value: any }[], initial?: number): Promise<any> {
+export async function select(
+  message: string,
+  choices: { title: string; value: any }[],
+  initial?: number
+): Promise<any> {
   const response = await prompts({
     type: "select",
     name: "value",
@@ -32,7 +36,10 @@ export async function text(message: string, initial?: string): Promise<string> {
   return response.value ?? "";
 }
 
-export async function multiselect(message: string, choices: { title: string; value: any }[]): Promise<any[]> {
+export async function multiselect(
+  message: string,
+  choices: { title: string; value: any }[]
+): Promise<any[]> {
   const response = await prompts({
     type: "multiselect",
     name: "value",

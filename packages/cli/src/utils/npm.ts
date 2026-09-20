@@ -25,7 +25,7 @@ export function getMissingDependencies(required: string[], cwd: string = process
 
   // Check if already in package.json
   const missingFromPackageJson = required.filter((dep) => !deps[dep]);
-  
+
   // Also check if installed in node_modules
   const nodeModulesPath = join(cwd, "node_modules");
   const missingFromNodeModules = required.filter((dep) => {
@@ -37,7 +37,11 @@ export function getMissingDependencies(required: string[], cwd: string = process
   return [...new Set([...missingFromPackageJson, ...missingFromNodeModules])];
 }
 
-export function addDependencies(dependencies: string[], dev = false, cwd: string = process.cwd()): void {
+export function addDependencies(
+  dependencies: string[],
+  dev = false,
+  cwd: string = process.cwd()
+): void {
   if (dependencies.length === 0) return;
 
   const pkg = getPackageJson(cwd);

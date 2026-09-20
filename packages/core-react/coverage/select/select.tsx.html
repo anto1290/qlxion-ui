@@ -234,7 +234,25 @@
 <a name='L169'></a><a href='#L169'>169</a>
 <a name='L170'></a><a href='#L170'>170</a>
 <a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -289,6 +307,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -303,6 +323,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -325,13 +347,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -382,6 +413,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -460,7 +496,9 @@ const Select: React.FC&lt;SelectProps&gt; = ({
   );
 &nbsp;
   return (
-    &lt;SelectContext.Provider value={{ value, onValueChange: handleValueChange, open, setOpen, displayMap }}&gt;
+    &lt;SelectContext.Provider
+      value={{ value, onValueChange: handleValueChange, open, setOpen, displayMap }}
+    &gt;
       &lt;div className="relative inline-block w-full"&gt;{children}&lt;/div&gt;
     &lt;/SelectContext.Provider&gt;
   );
@@ -472,43 +510,54 @@ const useSelect = () =&gt; {
   return ctx;
 };
 &nbsp;
-const SelectTrigger = React.forwardRef&lt;HTMLButtonElement, React.ButtonHTMLAttributes&lt;HTMLButtonElement&gt;&gt;(
-  ({ className, children, ...props }, ref) =&gt; {
-    const { open, setOpen } = useSelect();
-    return (
-      &lt;button
-        ref={ref}
-        type="button"
-        role="combobox"
-        aria-expanded={open}
-        onClick={() =&gt; setOpen(!open)}
-        className={cn(
-          "flex h-9 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm shadow-xs focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50",
-          className
-        )}
-        {...props}
+const SelectTrigger = React.forwardRef&lt;
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes&lt;HTMLButtonElement&gt;
+&gt;(({ className, children, ...props }, ref) =&gt; {
+  const { open, setOpen } = useSelect();
+  return (
+    &lt;button
+      ref={ref}
+      type="button"
+      role="combobox"
+      aria-expanded={open}
+      onClick={() =&gt; setOpen(!open)}
+      className={cn(
+        "flex h-9 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm shadow-xs focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50",
+        className
+      )}
+      {...props}
+    &gt;
+      {children}
+      &lt;svg
+        className="h-4 w-4 opacity-50 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
       &gt;
-        {children}
-        &lt;svg className="h-4 w-4 opacity-50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
-          &lt;path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /&gt;
-        &lt;/svg&gt;
-      &lt;/button&gt;
-    );
-  }
-);
+        &lt;path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  );
+});
 SelectTrigger.displayName = "SelectTrigger";
 &nbsp;
-const SelectValue = React.forwardRef&lt;HTMLSpanElement, React.HTMLAttributes&lt;HTMLSpanElement&gt; &amp; { placeholder?: string }&gt;(
-  ({ placeholder = "Pilih...", className, ...props }, ref) =&gt; {
-    const { value, displayMap } = useSelect();
-    const label = value ? displayMap.current.get(value) ?? value : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
-    return (
-      &lt;span ref={ref} className={cn("truncate block text-left", !label &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >"text-muted-foreground", c</span>lassName)} {...props}&gt;
-        {label || <span class="branch-1 cbranch-no" title="branch not covered" >placeholder}</span>
-      &lt;/span&gt;
-    );
-  }
-);
+const SelectValue = React.forwardRef&lt;
+  HTMLSpanElement,
+  React.HTMLAttributes&lt;HTMLSpanElement&gt; &amp; { placeholder?: string }
+&gt;(({ placeholder = "Pilih...", className, ...props }, ref) =&gt; {
+  const { value, displayMap } = useSelect();
+  const label = value ? (displayMap.current.get(value) ?? value) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+  return (
+    &lt;span
+      ref={ref}
+      className={cn("truncate block text-left", !label &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >"text-muted-foreground", c</span>lassName)}
+      {...props}
+    &gt;
+      {label || <span class="branch-1 cbranch-no" title="branch not covered" >placeholder}</span>
+    &lt;/span&gt;
+  );
+});
 SelectValue.displayName = "SelectValue";
 &nbsp;
 const SelectContent = React.forwardRef&lt;HTMLDivElement, React.HTMLAttributes&lt;HTMLDivElement&gt;&gt;(
@@ -564,7 +613,12 @@ const SelectItem = React.forwardRef&lt;HTMLDivElement, SelectItemProps&gt;(
         {isSelected &amp;&amp; (
           &lt;span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"&gt;
             &lt;svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
-              &lt;path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /&gt;
+              &lt;path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              /&gt;
             &lt;/svg&gt;
           &lt;/span&gt;
         )}
@@ -583,7 +637,7 @@ export { Select, SelectTrigger, SelectValue, SelectContent, SelectItem };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-09-20T19:03:27.371Z
+                at 2026-09-20T20:18:31.420Z
             </div>
         <script src="../prettify.js"></script>
         <script>

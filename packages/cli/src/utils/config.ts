@@ -39,7 +39,11 @@ export function validateConfig(config: any): config is QlxionConfig {
   return true;
 }
 
-export function getDefaultConfig(framework: "react" | "next", isTypeScript: boolean, tailwindConfig: string): QlxionConfig {
+export function getDefaultConfig(
+  framework: "react" | "next",
+  isTypeScript: boolean,
+  tailwindConfig: string
+): QlxionConfig {
   return {
     framework,
     tailwindConfig,

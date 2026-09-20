@@ -9,7 +9,9 @@ import { readdirSync, existsSync } from "fs";
 // ponytail: local version-tracking (skip manifest, no 3-way diff for now)
 export const updateCommand = new Command("update")
   .argument("[component]", "komponen, kosong = semua")
-  .description("Update komponen ke versi registry terbaru, tampilkan diff dahulu jika file sudah dimodifikasi")
+  .description(
+    "Update komponen ke versi registry terbaru, tampilkan diff dahulu jika file sudah dimodifikasi"
+  )
   .option("--all", "update semua komponen terpasang")
   .option("--dry-run", "preview saja, tidak menulis file")
   .action(async (name, opts) => {
@@ -23,9 +25,7 @@ export const updateCommand = new Command("update")
       logError("Failed to read config.");
       process.exit(1);
     }
-    const targets: string[] = opts.all
-      ? getAllLocalComponents(config)
-      : [name].filter(Boolean);
+    const targets: string[] = opts.all ? getAllLocalComponents(config) : [name].filter(Boolean);
 
     for (const c of targets) {
       const meta = getRegistryComponent(c);

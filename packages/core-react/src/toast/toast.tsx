@@ -7,8 +7,7 @@ const toastVariants = cva(
     variants: {
       variant: {
         default: "border-border bg-background text-foreground",
-        destructive:
-          "destructive border-destructive bg-destructive text-destructive-foreground",
+        destructive: "destructive border-destructive bg-destructive text-destructive-foreground",
         success: "border-green-600 bg-green-500 text-white",
       },
     },
@@ -27,16 +26,11 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
-  ({ className, variant = "default", open = true, onOpenChange, children, ...props }, ref) => {
+  ({ className, variant = "default", open = true, children, ...props }, ref) => {
     if (!open) return null;
 
     return (
-      <div
-        ref={ref}
-        role="status"
-        className={cn(toastVariants({ variant }), className)}
-        {...props}
-      >
+      <div ref={ref} role="status" className={cn(toastVariants({ variant }), className)} {...props}>
         {children}
       </div>
     );
@@ -44,27 +38,18 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
 );
 Toast.displayName = "Toast";
 
-const ToastTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h5
-    ref={ref}
-    className={cn("text-sm font-semibold [&+div]:text-xs", className)}
-    {...props}
-  />
-));
+const ToastTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ className, ...props }, ref) => (
+    <h5 ref={ref} className={cn("text-sm font-semibold [&+div]:text-xs", className)} {...props} />
+  )
+);
 ToastTitle.displayName = "ToastTitle";
 
 const ToastDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("text-sm opacity-90", className)}
-    {...props}
-  />
+  <div ref={ref} className={cn("text-sm opacity-90", className)} {...props} />
 ));
 ToastDescription.displayName = "ToastDescription";
 

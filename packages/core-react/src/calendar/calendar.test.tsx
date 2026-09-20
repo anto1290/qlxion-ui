@@ -9,9 +9,7 @@ describe("Calendar", () => {
   it("renders month grid and handles date selection", () => {
     const handleSelect = vi.fn();
     const testDate = new Date(2026, 8, 20); // Sept 20, 2026
-    const { getByText } = render(
-      <Calendar value={testDate} onChange={handleSelect} />
-    );
+    const { getByText } = render(<Calendar value={testDate} onChange={handleSelect} />);
 
     expect(getByText("September 2026")).toBeInTheDocument();
     fireEvent.click(getByText("15"));

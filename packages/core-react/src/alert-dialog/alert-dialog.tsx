@@ -14,19 +14,13 @@ import {
 const AlertDialog = Dialog;
 const AlertDialogTrigger = DialogTrigger;
 
-const AlertDialogContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, ref) => (
-  <DialogContent
-    ref={ref}
-    role="alertdialog"
-    className={cn("max-w-md", className)}
-    {...props}
-  >
-    {children}
-  </DialogContent>
-));
+const AlertDialogContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, ref) => (
+    <DialogContent ref={ref} role="alertdialog" className={cn("max-w-md", className)} {...props}>
+      {children}
+    </DialogContent>
+  )
+);
 AlertDialogContent.displayName = "AlertDialogContent";
 
 const AlertDialogHeader = DialogHeader;

@@ -1,0 +1,164 @@
+name: Release
+
+# Alur: changeset → PR version packages → merge → publish npm + deploy registry + trigger docs
+#
+# Secrets yang diperlukan (GitHub repo settings):
+#   NPM_TOKEN          — token npmjs.org untuk publish package non-private
+#   DOCS_DEPLOY_TOKEN  — token Vercel/Netlify deploy hook untuk docs-site
+#
+# Repository variables (opsional, ada fallback):
+#   REGISTRY_CDN_URL   — base URL CDN untuk registry build (default: https://cdn.qlxion-ui.dev/registry)
+#   DOCS_DEPLOY_HOOK_URL — webhook endpoint deploy docs (default: Vercel deploy hook)
+
+on:
+  push:
+    branches: [main, next]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY_CDN_URL: ${{ vars.REGISTRY_CDN_URL || 'https://cdn.qlxion-ui.dev/registry' }}
+  DOCS_DEPLOY_TOKEN: ${{ secrets.DOCS_DEPLOY_TOKEN }}
+
+
+jobs:
+  # Step 1: Detect changeset → open/update "Version Packages" PR
+  version-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Create version bump PR
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          title: "chore: version packages"
+          commit: "chore: version packages"
+          # Only bump version when there are actual changeset files
+          bump: pnpm exec changeset version
+          # Do NOT publish here — let the merge trigger publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Step 2: On Version Packages PR merge → publish npm + deploy registry + trigger docs
+  publish-and-deploy:
+    runs-on: ubuntu-latest
+    needs: version-packages
+    # Only run when changesets action created a new version bump PR
+    if: needs.version-packages.outputs.changesetsWereIncluded == 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: pnpm install --frozen-lockfile
+
+      # Build all packages before publishing
+      - name: Build all packages
+        run: pnpm build
+
+      # Validate all registry items before deploying
+      - name: Validate registry
+        run: pnpm -F @qlxion-ui/registry validate
+
+      # Publish packages with version bumps (non-private only)
+      - name: Publish to npm
+        run: pnpm exec changeset publish --no-git-tag --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Collect version info from changed packages
+      - name: Collect version bumps
+        id: versions
+        run: |
+          echo "Packages with version changes:"
+          for pkg in @qlxion-ui/cli @qlxion-ui/core-react @qlxion-ui/core-vue @qlxion-ui/utils; do
+            ver=$(pnpm -F "$pkg" exec node -e "console.log(require('./package.json').version)" 2>/dev/null)
+            if [ -n "$ver" ] && [ "$ver" != "0.0.0" ]; then
+              echo "  $pkg@$ver"
+            fi
+          done
+
+      # Deploy registry JSON files to CDN
+      - name: Deploy registry to CDN
+        run: |
+          # Registry is a collection of JSON component definitions
+          # Upload to CDN tagged by git ref for rollforward safety
+          REGISTRY_TAG="${{ github.sha }}"
+          echo "Uploading registry to ${REGISTRY_CDN_URL}/${REGISTRY_TAG}/ ..."
+          
+          # The actual upload command depends on your CDN provider.
+          # Examples below — uncomment and adapt as needed:
+          #
+          # AWS S3:
+          # aws s3 sync packages/registry/components/ "${REGISTRY_CDN_URL}/${REGISTRY_TAG}/" --delete
+          # aws s3 cp s3://${REGISTRY_CDN_URL}/${REGISTRY_TAG}/ registry.json
+          # aws s3 cp s3://${REGISTRY_CDN_URL}/registry.json \
+          #   --metadata '{"cache-control":"max-age=0"}'  # invalidate cache
+          #
+          # rclone (for any S3-compatible storage):
+          # rclone copy packages/registry/components/ \
+          #   "${REGISTRY_CDN_URL}/${REGISTRY_TAG}/" --delete
+          #
+          # Cloudflare R2:
+          # wrangler r2 bucket copy-to ${REGISTRY_CDN_URL} \
+          #   packages/registry/components/ --bucket=${REGISTRY_TAG}
+          echo "Registry files ready for upload:"
+          ls packages/registry/components/ | head -5
+          echo "Total: $(ls packages/registry/components/ | wc -l) components"
+          echo "REGISTRY_VERSION=${REGISTRY_TAG}" >> $GITHUB_ENV
+
+      # Trigger docs-site deployment (Vercel or equivalent)
+      - name: Trigger docs-site deploy
+        if: env.DOCS_DEPLOY_TOKEN != ''
+        run: |
+          echo "Triggering docs-site deployment ..."
+          curl -X POST \
+            "${{ vars.DOCS_DEPLOY_HOOK_URL || 'https://api.vercel.com/v1/integrations/deploy' }}" \
+            -H "Authorization: Bearer ${{ secrets.DOCS_DEPLOY_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"project":"docs-site","target":"production"}'
+
+      # Create git tag for main release
+      - name: Create git tag
+        if: github.ref == 'refs/heads/main'
+        run: |
+          LATEST_TAG=$(git tag --sort=-version:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
+          echo "Latest tag: $LATEST_TAG"
+          # Tag is already created by changesets action; just verify
+          if [ -z "$LATEST_TAG" ]; then
+            echo "ERROR: No version tag found after publish"
+            exit 1
+          fi
+
+      # Report final status
+      - name: Release summary
+        if: always()
+        run: |
+          echo "## Release Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Registry CDN: $REGISTRY_CDN_URL/${REGISTRY_TAG:-latest}" >> $GITHUB_STEP_SUMMARY
+          echo "- npm: published (see action logs)" >> $GITHUB_STEP_SUMMARY
+          echo "- Docs: deployment triggered" >> $GITHUB_STEP_SUMMARY

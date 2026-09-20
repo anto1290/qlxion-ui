@@ -24,7 +24,9 @@ export const diffCommand = new Command("diff")
     for (const c of targets) {
       const files = getComponentFiles(c, config.framework, config);
       for (const file of files) {
-        const targetPath = file.targetPath.startsWith("/") ? file.targetPath.slice(1) : file.targetPath;
+        const targetPath = file.targetPath.startsWith("/")
+          ? file.targetPath.slice(1)
+          : file.targetPath;
         const localPath = join(cwd, targetPath);
         if (!fileExists(localPath)) {
           logWarn(`(Lewat) File hilang: ${localPath}`);

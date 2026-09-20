@@ -53,7 +53,9 @@ const Select: React.FC<SelectProps> = ({
   );
 
   return (
-    <SelectContext.Provider value={{ value, onValueChange: handleValueChange, open, setOpen, displayMap }}>
+    <SelectContext.Provider
+      value={{ value, onValueChange: handleValueChange, open, setOpen, displayMap }}
+    >
       <div className="relative inline-block w-full">{children}</div>
     </SelectContext.Provider>
   );
@@ -65,43 +67,54 @@ const useSelect = () => {
   return ctx;
 };
 
-const SelectTrigger = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  ({ className, children, ...props }, ref) => {
-    const { open, setOpen } = useSelect();
-    return (
-      <button
-        ref={ref}
-        type="button"
-        role="combobox"
-        aria-expanded={open}
-        onClick={() => setOpen(!open)}
-        className={cn(
-          "flex h-9 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm shadow-xs focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50",
-          className
-        )}
-        {...props}
+const SelectTrigger = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ className, children, ...props }, ref) => {
+  const { open, setOpen } = useSelect();
+  return (
+    <button
+      ref={ref}
+      type="button"
+      role="combobox"
+      aria-expanded={open}
+      onClick={() => setOpen(!open)}
+      className={cn(
+        "flex h-9 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm shadow-xs focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <svg
+        className="h-4 w-4 opacity-50 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
       >
-        {children}
-        <svg className="h-4 w-4 opacity-50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-    );
-  }
-);
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  );
+});
 SelectTrigger.displayName = "SelectTrigger";
 
-const SelectValue = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement> & { placeholder?: string }>(
-  ({ placeholder = "Pilih...", className, ...props }, ref) => {
-    const { value, displayMap } = useSelect();
-    const label = value ? displayMap.current.get(value) ?? value : null;
-    return (
-      <span ref={ref} className={cn("truncate block text-left", !label && "text-muted-foreground", className)} {...props}>
-        {label || placeholder}
-      </span>
-    );
-  }
-);
+const SelectValue = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement> & { placeholder?: string }
+>(({ placeholder = "Pilih...", className, ...props }, ref) => {
+  const { value, displayMap } = useSelect();
+  const label = value ? (displayMap.current.get(value) ?? value) : null;
+  return (
+    <span
+      ref={ref}
+      className={cn("truncate block text-left", !label && "text-muted-foreground", className)}
+      {...props}
+    >
+      {label || placeholder}
+    </span>
+  );
+});
 SelectValue.displayName = "SelectValue";
 
 const SelectContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
@@ -157,7 +170,12 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
         {isSelected && (
           <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
             </svg>
           </span>
         )}

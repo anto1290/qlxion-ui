@@ -25,10 +25,7 @@ const MessageScroller = React.forwardRef<HTMLDivElement, MessageScrollerProps>(
     return (
       <div
         ref={internalRef}
-        className={cn(
-          "flex flex-col overflow-y-auto p-4 w-full h-full space-y-2",
-          className
-        )}
+        className={cn("flex flex-col overflow-y-auto p-4 w-full h-full space-y-2", className)}
         {...props}
       >
         {children}

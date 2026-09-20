@@ -1,7 +1,7 @@
 import { Command } from "commander";
-import { detectFramework, getSupportedFrameworks } from "../utils/framework-detection.js";
+import { detectFramework } from "../utils/framework-detection.js";
 import { configExists, writeConfig, getDefaultConfig, validateConfig } from "../utils/config.js";
-import { confirm, select, text, logInfo, logSuccess, logWarn, logError } from "../utils/prompts.js";
+import { confirm, select, text, logInfo, logSuccess, logError } from "../utils/prompts.js";
 import { QlxionConfig } from "../types/index.js";
 
 export const initCommand = new Command("init")
@@ -36,13 +36,10 @@ export const initCommand = new Command("init")
     } else {
       const detection = await detectFramework(cwd);
       if (detection.framework === "unknown") {
-        const choice = await select(
-          "Could not auto-detect framework. Please select:",
-          [
-            { title: "React (Vite/CRA)", value: "react" },
-            { title: "Next.js", value: "next" },
-          ]
-        );
+        const choice = await select("Could not auto-detect framework. Please select:", [
+          { title: "React (Vite/CRA)", value: "react" },
+          { title: "Next.js", value: "next" },
+        ]);
         framework = choice;
         if (framework === "next") {
           router = await detectNextRouter(cwd);
@@ -82,9 +79,13 @@ export const initCommand = new Command("init")
     let aliases = getDefaultConfig(framework, isTypeScript, tailwindConfig).aliases;
     if (!options.yes) {
       logInfo("Configure import aliases (press Enter for defaults):");
-      const componentsAlias = (await text(`Components alias (${aliases.components}):`, aliases.components)) || aliases.components;
-      const utilsAlias = (await text(`Utils alias (${aliases.utils}):`, aliases.utils)) || aliases.utils;
-      const uiAlias = (await text(`UI components alias (${aliases.ui}):`, aliases.ui)) || aliases.ui;
+      const componentsAlias =
+        (await text(`Components alias (${aliases.components}):`, aliases.components)) ||
+        aliases.components;
+      const utilsAlias =
+        (await text(`Utils alias (${aliases.utils}):`, aliases.utils)) || aliases.utils;
+      const uiAlias =
+        (await text(`UI components alias (${aliases.ui}):`, aliases.ui)) || aliases.ui;
       aliases = { components: componentsAlias, utils: utilsAlias, ui: uiAlias };
     }
 
@@ -117,7 +118,9 @@ export const initCommand = new Command("init")
     logSuccess(`Configuration written to qlxion.config.json`);
 
     if (framework === "next") {
-      logInfo("Next.js detected. Make sure to add QLXion UI to your tailwind.config.ts content paths:");
+      logInfo(
+        "Next.js detected. Make sure to add QLXion UI to your tailwind.config.ts content paths:"
+      );
       logInfo(`  content: ['${aliases.ui}/**/*.{ts,tsx}']`);
     }
   });

@@ -25,8 +25,10 @@ const toggleVariants = cva(
 export type ToggleVariant = "default" | "outline";
 export type ToggleSize = "default" | "sm" | "lg";
 
-export interface ToggleProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> {
+export interface ToggleProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "onChange"
+> {
   pressed?: boolean;
   defaultPressed?: boolean;
   onPressedChange?: (pressed: boolean) => void;

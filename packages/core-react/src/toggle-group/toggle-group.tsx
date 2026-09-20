@@ -63,7 +63,9 @@ const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
     };
 
     return (
-      <ToggleGroupContext.Provider value={{ type, value: currentValue, onItemClick, variant, size }}>
+      <ToggleGroupContext.Provider
+        value={{ type, value: currentValue, onItemClick, variant, size }}
+      >
         <div
           ref={ref}
           role="group"
@@ -78,8 +80,10 @@ const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
 );
 ToggleGroup.displayName = "ToggleGroup";
 
-export interface ToggleGroupItemProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "value"> {
+export interface ToggleGroupItemProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "value"
+> {
   value: string;
 }
 
