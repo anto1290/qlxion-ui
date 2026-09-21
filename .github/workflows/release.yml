@@ -45,8 +45,7 @@ jobs:
         with:
           title: "chore: version packages"
           commit: "chore: version packages"
-          # Only bump version when there are actual changeset files
-          bump: pnpm exec changeset version
+          version: pnpm exec changeset version
           # Do NOT publish here — let the merge trigger publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

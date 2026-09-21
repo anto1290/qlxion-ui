@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\""
   },
   "devDependencies": {
-    "@changesets/cli": "^3.0.3",
+    "@changesets/cli": "^2.28.0",
     "@eslint/js": "^9.0.0",
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.0.0",
