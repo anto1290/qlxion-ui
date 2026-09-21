@@ -55,7 +55,7 @@ export default function DataTableDoc() {
 
         <section>
           <h2 className="mb-3 text-xl font-semibold">Accessibility</h2>
-          <ul className="list-disc pl-6 space-y-1 text-sm"><li>Gunakan <table> semantik</li></ul>
+          <ul className="list-disc pl-6 space-y-1 text-sm"><li>Gunakan {"<"}table{">"} semantik</li></ul>
         </section>
 
         <section>
